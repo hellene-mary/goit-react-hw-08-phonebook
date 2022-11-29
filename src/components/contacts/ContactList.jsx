@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'components/redux/operations';
-import { toast } from 'react-toastify';
-import { selectContacts, selectContactsFilter } from './../redux/selectors';
+import { deleteContact } from 'redux/contacts/operations';
+import {
+  selectContacts,
+  selectContactsFilter,
+} from '../../redux/contacts/selectors';
 import { IoPersonOutline, IoClose } from 'react-icons/io5';
 import {
   ContactsList,
@@ -10,7 +12,7 @@ import {
   ContactText,
   ContactDelete,
 } from './ContactList.styles';
-import { getRandomHexColor } from '../utils/getColorsFn';
+import { getRandomHexColor } from '../../utils/getColorsFn';
 
 // компонент використовую список контактів з стору через useSelector
 export function ContactList() {
@@ -23,9 +25,6 @@ export function ContactList() {
 
   const handleDelete = evt => {
     dispatch(deleteContact(evt.currentTarget.id));
-
-    // ^ сповіщення має відображатись у featch??
-    toast.info(`This contact is delited from your phonebook!`);
   };
 
   const getVisibilityContacts = () => {
@@ -48,7 +47,7 @@ export function ContactList() {
             <IoPersonOutline />
           </ContactIcon>
           <ContactText rgb={getRandomHexColor()}>
-            {contact.name}: <span>{contact.phone}</span>
+            {contact.name}: <span>{contact.number}</span>
           </ContactText>
           <ContactDelete type="button" id={contact.id} onClick={handleDelete}>
             <IoClose />

@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
+export const Section = styled.section`
+  max-width: 540px;
+`;
+
 export const Form = styled.form`
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
 
   input {
     padding: 8px;
@@ -26,7 +30,6 @@ export const FormListItem = styled.li`
 `;
 
 export const FormButton = styled.button`
-  /* border-radius: 50%; */
   border-radius: 5px;
   height: 40px;
   border: none;
@@ -47,8 +50,3 @@ export const FormButton = styled.button`
     height: 25px;
   }
 `;
-
-/* .form button svg {
-  width: 25px;
-  height: 25px;
-} */

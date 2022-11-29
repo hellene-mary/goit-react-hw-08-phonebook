@@ -9,7 +9,6 @@ export const ContactItem = styled.li`
   margin-top: 12px;
   display: flex;
   align-items: center;
-  /* height: auto; */
 `;
 
 export const ContactIcon = styled.div`
@@ -41,7 +40,6 @@ export const ContactDelete = styled.button`
   color: black;
   margin-right: 0;
   margin-left: auto;
-  /* border: 1px solid #787878; */
   border: none;
   border-radius: 5px;
   height: 40px;
@@ -51,7 +49,6 @@ export const ContactDelete = styled.button`
   align-items: center;
 
   svg {
-    /* margin-right: 10px; */
     width: 25px;
     height: 25px;
   }

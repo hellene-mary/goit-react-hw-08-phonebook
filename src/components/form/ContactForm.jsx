@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../redux/operations';
-// import css from './ContactForm.module.css';
+import { addContact } from '../../redux/contacts/operations';
 import { toast } from 'react-toastify';
-import { selectContacts } from './../redux/selectors';
+import { selectContacts } from '../../redux/contacts/selectors';
 import { IoPersonAdd } from 'react-icons/io5';
 import { Form, FormList, FormListItem, FormButton } from './ContactForm.styles';
 
@@ -14,7 +13,7 @@ const ContactForm = () => {
     evt.preventDefault();
     const form = evt.target;
     const name = form.name.value;
-    const phone = form.number.value;
+    const number = form.number.value;
 
     if (
       contacts.find(
@@ -24,9 +23,7 @@ const ContactForm = () => {
       return toast.warn(`${name} is alredy in contacts.`);
     }
 
-    dispatch(addContact({ name, phone }));
-
-    toast.success(`${name} is added to the contact list!`);
+    dispatch(addContact({ name, number }));
 
     form.reset();
   }
