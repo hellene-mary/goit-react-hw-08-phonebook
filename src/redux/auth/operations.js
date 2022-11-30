@@ -68,7 +68,6 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
-      console.log('persistedToken', persistedToken);
       // If there is no token, exit without performing any request
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
@@ -79,7 +78,6 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
-      console.log('error', error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

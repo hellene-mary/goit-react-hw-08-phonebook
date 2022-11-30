@@ -1,41 +1,33 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Dna } from 'react-loader-spinner';
-
-import UserMenu from 'components/userMenu/UserMenu';
-import { Container, Nav, Header, Title } from './Navigation.styled';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
+import UserMenu from 'components/userMenu/UserMenu';
+import { Nav, NavAuthBox, NavBox } from './Navigation.styled';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <Container>
-      <Header>
-        {isLoggedIn && <UserMenu />}
-        <div>
+    <>
+      <NavBox>
+        <Nav to="/">Home</Nav>
+        {isLoggedIn ? (
+          <Nav to="/contacts">Contacts</Nav>
+        ) : (
+          <NavAuthBox>
+            {!isLoggedIn && <Nav to="/register">Register</Nav>}
+            {!isLoggedIn && <Nav to="/login">Log In</Nav>}
+          </NavAuthBox>
+        )}
+        {/* <NavAuthBox>
           {!isLoggedIn && <Nav to="/register">Register</Nav>}
           {!isLoggedIn && <Nav to="/login">Log In</Nav>}
-        </div>
-        {isLoggedIn && <Nav to="/contacts">Contacts</Nav>}
-      </Header>
-      <Suspense
-        fallback={
-          <Dna
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="dna-loading"
-            wrapperStyle={{}}
-            wrapperClass="dna-wrapper"
-          />
-        }
-      >
-        <Title>Phonebook</Title>
-        <Outlet />
-      </Suspense>
-    </Container>
+        </NavAuthBox>
+        {isLoggedIn && <Nav to="/contacts">Contacts</Nav>} */}
+      </NavBox>
+
+      {isLoggedIn && <UserMenu />}
+    </>
   );
 };
 

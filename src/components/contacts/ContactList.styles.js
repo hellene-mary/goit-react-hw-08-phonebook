@@ -5,7 +5,7 @@ export const ContactsList = styled.ul`
 `;
 
 export const ContactItem = styled.li`
-  font-size: 26px;
+  /* font-size: 26px; */
   margin-bottom: 10px;
   padding: 8px;
   display: flex;
@@ -32,6 +32,7 @@ export const ContactIcon = styled.div`
 `;
 
 export const ContactText = styled.p`
+  font-size: 24px;
   ::first-letter {
     color: ${p => p.rgb};
   }

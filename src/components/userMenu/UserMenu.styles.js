@@ -7,7 +7,7 @@ export const UserTitle = styled.div`
   align-items: center;
 
   p {
-    font-size: 25px;
+    font-size: 22px;
     &::first-letter {
       color: ${getRandomHexColor()};
     }

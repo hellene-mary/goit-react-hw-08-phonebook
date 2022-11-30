@@ -19,7 +19,7 @@ const Contacts = () => {
 
   return (
     <div>
-      <title>Your phonebook</title>
+      <h1>Your phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />

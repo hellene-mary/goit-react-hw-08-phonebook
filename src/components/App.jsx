@@ -6,11 +6,12 @@ import { selectIsRefreshing } from '../redux/auth/selectors';
 import { Dna } from 'react-loader-spinner';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navigation from './navigation/Navigation';
+
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from '../redux/auth/operations';
-
+import Home from 'pages/Home';
+import Layout from './layout/Layout';
 document.title = 'PhonebookBox_redux';
 
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -38,7 +39,8 @@ const App = () => {
         />
       ) : (
         <Routes>
-          <Route path="/" element={<Navigation />}>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
             <Route
               path="register"
               element={
